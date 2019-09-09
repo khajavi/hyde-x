@@ -1,4 +1,13 @@
 {{ partial "head.html" . }}
+
+	<div class="catalogue">
+		{{ range (.Paginate .Pages).Pages }}
+			{{ .Render "summary" }}
+		{{ end }}
+	</div>
+
+
+
 <div class="content container">
   <div class="posts">
     {{ $paginator := .Paginate (where .Data.Pages "Type" "post") }}
